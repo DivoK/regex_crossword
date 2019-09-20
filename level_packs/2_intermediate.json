@@ -1,0 +1,115 @@
+[
+    {
+        "title": "Always remember",
+        "up_to_down": [
+            "UB|IE|AW",
+            "[TUBE]*",
+            "[BORF]."
+        ],
+        "left_to_right": [
+            "[NOTAD]*",
+            "WEL|BAL|EAR"
+        ],
+        "right_to_left": [
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "Johnny",
+        "up_to_down": [
+            "[BQW](PR|LE)",
+            "[RANK]+"
+        ],
+        "left_to_right": [
+            "[AWE]+",
+            "[ALP]+K",
+            "(PR|ER|EP)"
+        ],
+        "right_to_left": [
+            "",
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "Earth",
+        "up_to_down": [
+            ".(.)\\1",
+            ".*[WAY]+",
+            "[RAM].[OH]"
+        ],
+        "left_to_right": [
+            "CAT|FOR|FAT",
+            "RY|TY\\-",
+            "[TOWEL]*"
+        ],
+        "right_to_left": [
+            "",
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "Encyclopedia",
+        "up_to_down": [
+            "[JUNDT]*",
+            "APA|OPI|OLK",
+            "(NA|FE|HE)[CV]"
+        ],
+        "left_to_right": [
+            "[DEF][MNO]*",
+            "[^DJNU]P[ABC]",
+            "[ICAN]*"
+        ],
+        "right_to_left": [
+            "",
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "Technology",
+        "up_to_down": [
+            "[^NRU](NO|ON)",
+            "(D|FU|UF)+",
+            "(FO|A|R)*",
+            "(N|A)*"
+        ],
+        "left_to_right": [
+            "[RUNT]*",
+            "O.*[HAT]",
+            "(.)*DO\\1"
+        ],
+        "right_to_left": [
+            "",
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            "",
+            "",
+            ""
+        ]
+    }
+]

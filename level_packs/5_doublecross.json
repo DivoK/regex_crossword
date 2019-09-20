@@ -1,0 +1,119 @@
+[
+    {
+        "title": "Telekinesis",
+        "up_to_down": [
+            "[D-HJ-M]",
+            "[^A-RU-Z]"
+        ],
+        "left_to_right": [
+            "[A-GN-Z]+"
+        ],
+        "right_to_left": [
+            "[^A-DI-S]+"
+        ],
+        "down_to_up": [
+            "[^F-KM-Z]",
+            "[A-KS-V]"
+        ]
+    },
+    {
+        "title": "GMC Vandura",
+        "up_to_down": [
+            "[^MCI]+",
+            ".A",
+            "(TM|BF)"
+        ],
+        "left_to_right": [
+            "(CAT|A-T)+",
+            "[MA\\-\\sE]+"
+        ],
+        "right_to_left": [
+            "[^KI\\sP]+",
+            "(M|APS|EA)*"
+        ],
+        "down_to_up": [
+            "[AI][E\\s]",
+            "[A\\-Z]+",
+            "[\\sT\\-M]+"
+        ]
+    },
+    {
+        "title": "Bat Man",
+        "up_to_down": [
+            ".*[GAF]*",
+            "(P|ET|O|TEA)*",
+            "[RUSH]+"
+        ],
+        "left_to_right": [
+            "[ONE]*[SKA]",
+            ".*(RE|ER)",
+            "A+[TUB]*"
+        ],
+        "right_to_left": [
+            ".*(O|S)*",
+            "[^GOA]*",
+            "[STUPA]+"
+        ],
+        "down_to_up": [
+            "(NF|FA|A|FN)+",
+            ".*(A|E|I).*",
+            "[SUPER]*"
+        ]
+    },
+    {
+        "title": "Big Mac",
+        "up_to_down": [
+            "(.)\\1(.)\\2",
+            "[C\\sOU]+",
+            "[^PU\\sH]+"
+        ],
+        "left_to_right": [
+            ".[LUH]+",
+            "(P|K)[^U]+",
+            ".*C+[TIF]",
+            "(NO|ONE|ION)*"
+        ],
+        "right_to_left": [
+            ".*L+",
+            "[PUF\\s]*",
+            "[TIC]*",
+            "[NOI\\sE]+"
+        ],
+        "down_to_up": [
+            "[PIF]+",
+            ".*[OWE]*",
+            "(TN|LF|TF)*"
+        ]
+    },
+    {
+        "title": "The Lektor Device",
+        "up_to_down": [
+            "[^RO\\sE]*(WHE|WHO)",
+            "[ARE](.)[SAINT]+\\1V",
+            ".{2}[ST\\sEL]+"
+        ],
+        "left_to_right": [
+            "(RR|FRO)*",
+            "[^SAINT]+",
+            "[\\sUSH]*",
+            "[A\\sI]+",
+            "[WITH]*",
+            "[HEL\\s]+",
+            ".*"
+        ],
+        "right_to_left": [
+            "[FR\\sO]+",
+            "(M\\s|SM)[ROSE]",
+            "(S|US)+",
+            "[^AW]A.*",
+            "[^HEAR]+",
+            ".*[FIL]",
+            "(VE|O|VO)+"
+        ],
+        "down_to_up": [
+            "[^VYS]+",
+            ".(\\sSAI).*",
+            "(LE|\\sT|S|OR)+"
+        ]
+    }
+]

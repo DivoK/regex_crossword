@@ -1,0 +1,129 @@
+[
+    {
+        "title": "Bal",
+        "up_to_down": [
+            "[GRAPEZ]+",
+            "[^ION\\sS]+",
+            "(ZO|OS|OP)"
+        ],
+        "left_to_right": [
+            "(PO|R|G|E)*",
+            "(Z|OO)[KINZS]+"
+        ],
+        "right_to_left": [
+            "[GRA]P+.*",
+            "(X|Y|Z)[KIS\\s]+"
+        ],
+        "down_to_up": [
+            "[GIN].",
+            "[SPIK\\s]*",
+            "[^ZYP]+"
+        ]
+    },
+    {
+        "title": "Tel",
+        "up_to_down": [
+            "M[\\DIP]*",
+            "(\\\\d|\\d.)[\\\\\\/B]",
+            "(Y$|YH|\\d$)+"
+        ],
+        "left_to_right": [
+            "(Y|\\d|M)+",
+            "(.H|P|.P)+",
+            "[\\dIP\\s].+"
+        ],
+        "right_to_left": [
+            "[^IB][0-3]Y",
+            "^(P|Y)*(PA|\\.H$)",
+            "[PA\\\\d\\d]+"
+        ],
+        "down_to_up": [
+            "(M|A|P)+",
+            "[^2O13]\\.\\\\*(A|P)?",
+            "[HOW2Y]+"
+        ]
+    },
+    {
+        "title": "Kil",
+        "up_to_down": [
+            "[MENSA?]+",
+            "(A|\\?|\\?P|NP)+",
+            "[YOU?BE]+",
+            "(O|P)\\1\\1"
+        ],
+        "left_to_right": [
+            "[^APE]+.?",
+            "[SNAKE]+..",
+            "(\\!|\\'|\\.|\\?)?P[YO!]+"
+        ],
+        "right_to_left": [
+            "[M-Q].[A-E][M-Q]",
+            "[^NAKED].?(UO|DUO)",
+            ".+[M-W]+"
+        ],
+        "down_to_up": [
+            "[^NAP\\s]+.",
+            "[PEN\\sA?]+",
+            ".+(Y|BE)",
+            "[^BAT'S?]+"
+        ]
+    },
+    {
+        "title": "Fol",
+        "up_to_down": [
+            "[A5-9\\/]+\\d(\\s|:|\\.)",
+            "[T0X\\sD]+",
+            "[BMX'S]+N?",
+            "[PA/\\sWE]+"
+        ],
+        "left_to_right": [
+            "(\\d+)[MEW]+",
+            "[\\/BEDS]+",
+            "(\\d|\\/d|P|\\sS|S)+",
+            "[^ZO\\s\\/\\d]+"
+        ],
+        "right_to_left": [
+            "[W407OM]+",
+            ".+(D|B)+.?",
+            "[SP1NE\\s]+",
+            "[NA:X,S]+"
+        ],
+        "down_to_up": [
+            "[0-9:A-Z\\/\\s]+",
+            "(0D|E\\s|\\sX)+",
+            ".+B(SN|XN|:P)+",
+            "[^\\sIN\\/5]+"
+        ]
+    },
+    {
+        "title": "Lul",
+        "up_to_down": [
+            "[2TAIL\\-D]+",
+            "(WE|R4|RY|M)+",
+            "[FEAL3-5S]+",
+            "[^FA\\sT1-2]+F",
+            "[LO\\s\\?5-8]+"
+        ],
+        "left_to_right": [
+            "(N3|TRA|N7)+",
+            "[1LOVE2?4]+.",
+            "(A|D)M[5-8$L]+",
+            "[^\\s0ILAD]+",
+            "[B-E]+(.)\\1."
+        ],
+        "right_to_left": [
+            "[^OLD\\s]+",
+            "(\\d+)[LA\\s$?]+",
+            "(\\-P|5\\$|AM|Z|L)+",
+            "(\\-D|\\-WE)+[^L4-9N$?]+",
+            "[FED$?]+"
+        ],
+        "down_to_up": [
+            "[^ILYO]+",
+            ".+[MURDEW]+",
+            "[1ALF5$E\\s]+",
+            "[\\dFAN$?]+",
+            ".+\\s.+\\?"
+        ]
+    }
+]

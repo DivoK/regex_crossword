@@ -1,0 +1,147 @@
+[
+    {
+        "title": "The OR symbol",
+        "up_to_down": [
+            "A|B"
+        ],
+        "left_to_right": [
+            "A|Z"
+        ],
+        "right_to_left": [
+            ""
+        ],
+        "down_to_up": [
+            ""
+        ]
+    },
+    {
+        "title": "A Range of characters",
+        "up_to_down": [
+            "[ABC]"
+        ],
+        "left_to_right": [
+            "[BDF]"
+        ],
+        "right_to_left": [
+            ""
+        ],
+        "down_to_up": [
+            ""
+        ]
+    },
+    {
+        "title": "Characters NOT to include",
+        "up_to_down": [
+            "[^AB]"
+        ],
+        "left_to_right": [
+            "[ABC]"
+        ],
+        "right_to_left": [
+            ""
+        ],
+        "down_to_up": [
+            ""
+        ]
+    },
+    {
+        "title": "Zero or more",
+        "up_to_down": [
+            "A*"
+        ],
+        "left_to_right": [
+            "A",
+            "AB*"
+        ],
+        "right_to_left": [
+            "",
+            ""
+        ],
+        "down_to_up": [
+            ""
+        ]
+    },
+    {
+        "title": "Zero or one",
+        "up_to_down": [
+            "A?B?"
+        ],
+        "left_to_right": [
+            "A|C",
+            "B"
+        ],
+        "right_to_left": [
+            "",
+            ""
+        ],
+        "down_to_up": [
+            ""
+        ]
+    },
+    {
+        "title": "One or more",
+        "up_to_down": [
+            "A+"
+        ],
+        "left_to_right": [
+            "A|B",
+            "A|Z"
+        ],
+        "right_to_left": [
+            "",
+            ""
+        ],
+        "down_to_up": [
+            ""
+        ]
+    },
+    {
+        "title": "Backreference",
+        "up_to_down": [
+            "(A)\\1"
+        ],
+        "left_to_right": [
+            "A|B",
+            "A|B"
+        ],
+        "right_to_left": [
+            "",
+            ""
+        ],
+        "down_to_up": [
+            ""
+        ]
+    },
+    {
+        "title": "Specific amount",
+        "up_to_down": [
+            "A{2,}"
+        ],
+        "left_to_right": [
+            "A{1}",
+            "B|A"
+        ],
+        "right_to_left": [
+            "",
+            ""
+        ],
+        "down_to_up": [
+            ""
+        ]
+    },
+    {
+        "title": "Space",
+        "up_to_down": [
+            "A|\\s"
+        ],
+        "left_to_right": [
+            "\\s"
+        ],
+        "right_to_left": [
+            ""
+        ],
+        "down_to_up": [
+            ""
+        ]
+    }
+]

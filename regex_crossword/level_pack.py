@@ -12,3 +12,9 @@ class LevelPack:
 
     def __iter__(self):
         return iter(self.levels)
+
+    def __getitem__(self, index: int) -> Level:
+        return self.levels[index]
+
+    def __len__(self) -> int:
+        return len(self.levels)

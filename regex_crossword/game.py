@@ -1,7 +1,7 @@
-import math
 import curses
 import curses.ascii
 import dataclasses
+import math
 import typing
 
 from .level import Level
@@ -36,6 +36,16 @@ class Game:
         return window_legend
 
     def _init_windows(self) -> None:
+        if self.window_game is not None:
+            self.window_game.clear()
+            self.window_game.noutrefresh()
+        if self.window_legend is not None:
+            self.window_legend.clear()
+            self.window_legend.noutrefresh()
+        if self.window_legend_alt is not None:
+            self.window_legend_alt.clear()
+            self.window_legend_alt.noutrefresh()
+        curses.doupdate()
         legend_position_y = 0
         legend_position_x = math.ceil(curses.COLS / 2)
         self.window_legend = self._create_legend_window(
@@ -49,7 +59,7 @@ class Game:
         self.window_game = curses.newwin(self.matrix.str_height, self.matrix.str_width + 1)
         self.window_game.keypad(True)
         self.redraw_game()
-        self.window_game.move(1, 2)
+        self.window_game.move(2 + (2 * self.cursor_pos.row), 4 + (4 * self.cursor_pos.col))
 
     def redraw_game(self) -> None:
         cur_pos_y, cur_pos_x = self.window_game.getyx()
@@ -62,20 +72,31 @@ class Game:
         cur_pos_y, cur_pos_x = self.window_game.getyx()
         try:
             if char == curses.KEY_RIGHT:
+                if self.cursor_pos.col + 1 >= self.matrix.columns:
+                    raise IndexError('Cursor got off the matrix')
                 self.window_game.move(cur_pos_y, cur_pos_x + 4)
                 self.cursor_pos.col += 1
             elif char == curses.KEY_LEFT:
+                if self.cursor_pos.col - 1 < 0:
+                    raise IndexError('Cursor got off the matrix')
                 self.window_game.move(cur_pos_y, cur_pos_x - 4)
                 self.cursor_pos.col -= 1
             elif char == curses.KEY_DOWN:
+                if self.cursor_pos.row + 1 >= self.matrix.rows:
+                    raise IndexError('Cursor got off the matrix')
                 self.window_game.move(cur_pos_y + 2, cur_pos_x)
                 self.cursor_pos.row += 1
             elif char == curses.KEY_UP:
+                if self.cursor_pos.row - 1 < 0:
+                    raise IndexError('Cursor got off the matrix')
                 self.window_game.move(cur_pos_y - 2, cur_pos_x)
                 self.cursor_pos.row -= 1
             elif char in (curses.KEY_ENTER, curses.ascii.NL):
                 if self.level.check_matrix(self.matrix):
                     return True
+            elif char == curses.KEY_RESIZE:
+                curses.update_lines_cols()
+                self._init_windows()
             elif curses.ascii.isprint(char):
                 self.matrix[self.cursor_pos.row][self.cursor_pos.col] = chr(char).upper()
                 self.redraw_game()

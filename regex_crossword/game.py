@@ -1,17 +1,11 @@
 import curses
 import curses.ascii
-import dataclasses
 import math
 import time
 import typing
 
 from .level import Level
-
-
-@dataclasses.dataclass
-class Coordinate:
-    row: int
-    col: int
+from .utils import Coordinate, popup_message
 
 
 class Game:
@@ -126,28 +120,12 @@ class Game:
         return False
 
     def _finished_level(self) -> None:
-        curses.flash()
-        curses.curs_set(0)
+        success_text = f'Success! You\'ve finished "{self.level.title}" after {round(time.time() - self.start_time, 2)} seconds!\nPress {{ENTER}} to continue...'
         success_offset_y = int(curses.LINES * (1 / 5))
         success_offset_x = int(curses.COLS * (1 / 5))
-        success_text = f'Success! You\'ve finished "{self.level.title}" after {round(time.time() - self.start_time, 2)} seconds!\nPress {{ENTER}} to continue...'
-        success_text_split = success_text.splitlines()
-        success_width = len(max(success_text_split, key=len))
-        success_length = len(success_text_split)
-        success_box = curses.newwin(
-            success_length + 2, success_width + 3, success_offset_y - 1, success_offset_x - 1
-        )
-        success_box.border()
-        success_box.refresh()
-        window_success = curses.newwin(
-            success_length, success_width + 1, success_offset_y, success_offset_x
-        )
-        window_success.addstr(success_text.strip())
-        window_success.refresh()
-        char = window_success.getch()
-        while char not in (curses.KEY_ENTER, curses.ascii.NL):
-            char = window_success.getch()
-        curses.curs_set(1)
+        success_position = Coordinate(success_offset_y, success_offset_x)
+        exit_keys = (curses.KEY_ENTER, curses.ascii.NL)
+        popup_message(success_text, success_position, exit_keys)
 
     def play_level(self) -> int:
         self._init_windows()

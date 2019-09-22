@@ -5,6 +5,7 @@ from pathlib import Path
 
 from .game import Game
 from .level_pack import LevelPack
+from .utils import Coordinate, popup_message
 
 INTRO = '''Welcome to the Regex Crossword!
 
@@ -49,23 +50,11 @@ class Crossword:
         self.stdscr = None
 
     def _display_help(self) -> None:
-        curses.curs_set(0)
         help_offset_y = int(curses.LINES * (1 / 5))
         help_offset_x = int(curses.COLS * (1 / 5))
-        help_split = HELP_TEXT.splitlines()
-        help_width = len(max(help_split, key=len))
-        help_length = len(help_split)
-        help_box = curses.newwin(
-            help_length + 2, help_width + 3, help_offset_y - 1, help_offset_x - 1
-        )
-        help_box.border()
-        help_box.refresh()
-        window_help = curses.newwin(help_length, help_width + 1, help_offset_y, help_offset_x)
-        window_help.addstr(HELP_TEXT.strip())
-        window_help.refresh()
-        char = window_help.getch()
-        while char != curses.ascii.ESC:
-            char = window_help.getch()
+        help_position = Coordinate(help_offset_y, help_offset_x)
+        exit_keys = [curses.ascii.ESC]
+        popup_message(HELP_TEXT, help_position, exit_keys)
 
     def _handle_input(self, char: int) -> None:
         if chr(char) in self.pack_id_pairs:

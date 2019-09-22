@@ -21,7 +21,7 @@ The game goes like this:
 You will be presented with a grid for you to fill with characters.
 There will also be definitions telling you how to fill the grid. Just like an ordinary crossword!
 The twist? Each "definition" is actually a Regular Expression that will try to match against the respectful row or column.
-Your goal? Fill the entire grid so that every regex will match its coresponding string.
+Your goal? Fill the entire grid so that every regex will match its coresponding string!
 
 KEYS:
 Navigate the grid using the {ARROW KEYS}. When you think you're done, press {ENTER} to validate yourself!
@@ -30,7 +30,7 @@ Also, you can navigate back and forth between levels in your chosen level pack b
 You can go back from any screen (including this help or the main selection) by pressing {ESCAPE}.
 
 On another note, all regexes are computed in real time when you try to validate your input.
-There is no predefined answer so if you fail validate a level be sure to check the regexes again!
+There is no predefined answer so if you fail to validate a level be sure to check the regexes again!
 
 Happy regexing!
 '''
@@ -51,7 +51,7 @@ class Crossword:
 
     def _display_help(self) -> None:
         help_offset_y = int(curses.LINES * (1 / 5))
-        help_offset_x = int(curses.COLS * (1 / 5))
+        help_offset_x = int(curses.COLS * (1 / 7))
         help_position = Coordinate(help_offset_y, help_offset_x)
         exit_keys = [curses.ascii.ESC]
         popup_message(HELP_TEXT, help_position, exit_keys)

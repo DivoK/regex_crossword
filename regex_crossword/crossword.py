@@ -71,17 +71,20 @@ class Crossword:
         elif chr(char) == '?':
             self._display_help()
 
-    def mainloop(self, stdscr):
-        self.stdscr = stdscr
-        self.stdscr.addstr(self.intro)
-        self.stdscr.refresh()
-        curses.curs_set(0)
-        char = self.stdscr.getch()
-        while char != curses.ascii.ESC:
-            curses.curs_set(1)
-            self._handle_input(char)
-            self.stdscr.clear()
+    def mainloop(self):
+        def _mainloop(stdscr):
+            self.stdscr = stdscr
             self.stdscr.addstr(self.intro)
             self.stdscr.refresh()
             curses.curs_set(0)
             char = self.stdscr.getch()
+            while char != curses.ascii.ESC:
+                curses.curs_set(1)
+                self._handle_input(char)
+                self.stdscr.clear()
+                self.stdscr.addstr(self.intro)
+                self.stdscr.refresh()
+                curses.curs_set(0)
+                char = self.stdscr.getch()
+
+        curses.wrapper(_mainloop)

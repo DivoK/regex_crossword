@@ -1,15 +1,17 @@
-import curses
 import sys
 from pathlib import Path
 
 from .crossword import Crossword
 
 
-def main(stdscr) -> None:
+def main() -> None:
     packs_path = Path(sys.argv[1])
     cw = Crossword(packs_path)
-    cw.mainloop(stdscr)
+    try:
+        cw.mainloop()
+    except KeyboardInterrupt:
+        print('Thank you for playing!')
 
 
 if __name__ == '__main__':
-    curses.wrapper(main)
+    main()

@@ -51,7 +51,7 @@ def parse_pack(driver: webdriver.Chrome, pack_url: str) -> pack_dict_type:
         try:
             levels.append(parse_level(driver.page_source))
         except Exception:
-            logger.warning('got exception, finished with this pack')
+            logger.warning(f'got exception, treating pack {pack_url} as finished')
             break
         i += 1
     return {'title': pack_url.split('/')[-2], 'levels': levels}
@@ -68,8 +68,8 @@ def get_challenge_packs(content: str) -> typing.List[str]:
     ]
 
 
-def crawl(output_path: Path) -> None:
-    logger.info(f'start crawling on {ROOT_SITE}')
+def scrape(output_path: Path) -> None:
+    logger.info(f'start scraping on {ROOT_SITE}')
     driver = webdriver.Chrome()
     driver.get(ROOT_SITE)
     challenge_packs = get_challenge_packs(driver.page_source)

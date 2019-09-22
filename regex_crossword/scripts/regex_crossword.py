@@ -5,9 +5,9 @@ from pathlib import Path
 from ..crossword import Crossword
 
 try:
-    from .crawler import crawl
+    from .scraper import scrape
 except ImportError:
-    crawl = None
+    scrape = None
 
 DEFAULT_LEVEL_PACKS_PATH = Path('level_packs')
 
@@ -26,20 +26,20 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         help='Path to a directory containing the level packs',
     )
-    crawler_group = parser.add_argument_group(
-        'Crawler arguments', 'Arguments given to the crawler'
+    scraper_group = parser.add_argument_group(
+        'scraper arguments', 'Arguments given to the scraper'
     )
-    crawler_group.add_argument(
-        '--crawl',
+    scraper_group.add_argument(
+        '--scrape',
         default=False,
         action='store_true',
-        help='Activate the crawler function (will override game functionality)',
+        help='Activate the scraper function (will override game functionality)',
     )
-    crawler_group.add_argument(
+    scraper_group.add_argument(
         '--output',
         type=Path,
         default=DEFAULT_LEVEL_PACKS_PATH,
-        help='Where to output the crawler data',
+        help='Where to output the scraper data',
     )
     return parser.parse_args()
 
@@ -56,13 +56,13 @@ def game_main(level_packs_path: Path) -> None:
 
 def cli() -> int:
     args = parse_args()
-    if args.crawl:
-        if crawl is None:
+    if args.scrape:
+        if scrape is None:
             print(
-                'Crawler isn\'t available.\nTry to reinstall the package using the extra requirement `[crawler]`.'
+                'Scraper isn\'t available.\nTry to reinstall the package using the extra requirement `[scraper]`.'
             )
             return FAILURE
-        crawl(args.output)
+        scrape(args.output)
         return SUCCESS
     level_packs: Path = (
         args.level_packs
@@ -71,7 +71,7 @@ def cli() -> int:
     )
     if not level_packs.exists():
         print(f'Directory {level_packs} doesn\'t exist.')
-        print('If you don\'t have any level packs, consider using the `--crawl` flag.')
+        print('If you don\'t have any level packs, consider using the `--scrape` flag.')
         return FAILURE
     game_main(level_packs)
     return SUCCESS

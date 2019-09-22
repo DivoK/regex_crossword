@@ -26,7 +26,7 @@ setuptools.setup(
     python_requires='>=3.7',
     packages=setuptools.find_packages(),
     include_package_data=True,
-    extras_require={'crawler': ['selenium', 'beautifulsoup4', 'loguru']},
+    extras_require={'scraper': ['selenium', 'beautifulsoup4', 'loguru']},
     entry_points='''
         [console_scripts]
         regex_crossword=regex_crossword.scripts.regex_crossword:cli

@@ -1,0 +1,226 @@
+[
+    {
+        "title": "The Ghost",
+        "up_to_down": [
+            "[RQ\\s]*(N|U|M|\\s){3,}",
+            "(N|I|E)[HOLE]{2,}A(M|N)",
+            "[VIT]{2}[T\\s]?(STU|PLO)+",
+            "(E|\\s)(A|S|K)*.U?[FR]",
+            "(F|A|N)(\\s)\\1\\2[RIF](K|D)+",
+            "(G|A|\\s)(DU|F|SET)+[WAE]+",
+            "[ASK]?(LR|EO|\\sN)+"
+        ],
+        "left_to_right": [
+            "[RA](A|E)[V\\s]\\1[NG]+\\1",
+            "[SHI\\s]+.{2}",
+            "(FO|UL|ED)*[DAN\\s]+",
+            "[TORM]+ST(U|\\s|N|K)*",
+            "(F|N)(.)[RUNT]+\\2[CL]*",
+            "\\s[URM]*[ERD]{3,}"
+        ],
+        "right_to_left": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "Hamlet and Ophelia",
+        "up_to_down": [
+            "(T|K)[POE]\\1\\1(B|E|\\s)*",
+            "[PROH]+TS+",
+            "(BY|\\s|K){3}(AH|T|HA)+",
+            "(TEI|PNI|BNB)*",
+            "(\\sO|EO|E\\s)+",
+            "[I,T]{4}(QN|BA)*",
+            "(.)\\1\\1[SUN]*\\1"
+        ],
+        "left_to_right": [
+            "[SALT]+O(\\sB|S,|E,)+[F\\s]",
+            "(OR\\s|T\\s|NO)*",
+            ".(L|,|O)[,E\\sB]+",
+            "(TH|IH|T)AT[SI\\s]*",
+            "(\\s|I)?(T|H|F){2}E[QU\\s]{3}",
+            "[^BAKH\\s]+(\\sB|N\\s)"
+        ],
+        "right_to_left": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "The Play",
+        "up_to_down": [
+            "[O-S\\sG-L]+",
+            "[ANTIGE]+",
+            "(S\\s|\\sS|'A)+",
+            "[PI\\sRD]+",
+            "(TD|L|LO|O|OH)+",
+            "[HITE'\\s]+",
+            "[MENDS]+"
+        ],
+        "left_to_right": [
+            "[HEL\\s]+P.+",
+            "[MI/SON]+[^OLDE]{4}",
+            "[IN'THE\\.\\s]+",
+            ".[A-G]+(R|D)+[END]+"
+        ],
+        "right_to_left": [
+            ".[SEPOLI\\s]+",
+            ".{3,4}(\\sH|\\s|IM)+",
+            "[IT'\\s]{4}[H.TE]+",
+            ".{4}(NI|TE|N|DE)+"
+        ],
+        "down_to_up": [
+            "(\\s\\s|OR|HO|ME)+",
+            "[A-G]N+(GI|IG|PI)",
+            "[RAM\\sES']+",
+            "[^AINED]+",
+            "[HORTED]+",
+            "[F-K]{2}[F-M]..?",
+            "(S|I|MS)[MYEND]*"
+        ]
+    },
+    {
+        "title": "Laertes",
+        "up_to_down": [
+            "[PHAT\\s!]+",
+            "(O\\s|E\\s)+.+",
+            "[ORP]+TO[^PHILA]",
+            "[^OLDER]{3}H.+",
+            ".[HORN\\s]+[^HAS]",
+            "[WAU\\s]+",
+            "[CASH]+[O,!]+"
+        ],
+        "left_to_right": [
+            "[M-W\\s]+[A-D]",
+            "(H|E|Y)(.)(OF|ER)\\2[WAS]{2}",
+            "[HASTER'\\s]+",
+            "(A|T)[YUR\\s]\\1H[OU\\s,!]+",
+            "(.).(F|O)\\2(R|I|P|\\s)+\\1\\2",
+            "[M-Q]+[HELL]+.+"
+        ],
+        "right_to_left": [
+            ".+[MUNCH']{3}",
+            "[FO\\sH]+(OP|WA|HA)",
+            "(R\\s|TE|S)+[^RS\\s]{2}(S|HH)?",
+            "[THO\\sE]+U.?",
+            "[PRO\\sE]+",
+            "(P|H|EL)+[AILS!]+"
+        ],
+        "down_to_up": [
+            "(.).\\1\\1\\s.",
+            "[PHONE\\s!]+(HP|PH)+",
+            "(O|A)\\1.+[ELA]",
+            "[LOFHER\\s]+",
+            "[^NUT\\s].[HORIS]+",
+            "[U-W].+(\\s|A)+",
+            "[A-E]{2}(S,|O,|O!|,!)+"
+        ]
+    },
+    {
+        "title": "Memento",
+        "up_to_down": [
+            "[POLEA\\s]{5}[^ASH]+",
+            ".(OR|AP|IE).[FA\\sT]+",
+            "[^ELFR]+(E|OI|J)+",
+            "[^OH,AI\\s:IM!]+",
+            "[KLIPS,CLAP\\s]+",
+            "[\\sHY:!;]+.+(T|A|PE)\\1"
+        ],
+        "left_to_right": [
+            "[^DO.HY:PER!']+",
+            "[ROPE\\s]+[YE\\s]+",
+            "[FAST\\s,OR]+.*",
+            "[^FOUR,SHE]+",
+            "[LEAF\\s]*[M-R]+",
+            "[^TRASH]+",
+            "[NITRO,FUN]+",
+            "(A|E|I)[J\\s]+\\1(BE|ST)"
+        ],
+        "right_to_left": [
+            "(A|E|I|O).\\1[SOFT,]+.",
+            "[PAST]{1}(O|U|T)+[YEAR\\s]+",
+            "O[RICE]+(S\\?|K!)",
+            "[\\s.!]+[ASH]",
+            "[^PLAY?KIS]+[LOVE]*",
+            "(\\sI|W\\s|OF)+",
+            "(N|O).(I|F)\\1\\2.",
+            "(S\\s|E\\s).[EAST]+"
+        ],
+        "down_to_up": [
+            "[^IR]{2}[OWN\\s]+.",
+            "[LORD'.]+(PS|F\\s)+",
+            "[A?OH\u2013FIRE.]+J?",
+            "(SR|LF|C.)+[END]+",
+            "[^YOAS]+L[\\sHIS]+",
+            "[^EAR;][IF:A?YOLK!].+"
+        ]
+    },
+    {
+        "title": "The End",
+        "up_to_down": [
+            "(NR\\s|BE)+.+",
+            "[^SPYC\\s]+",
+            "[^ADSP]+",
+            "[^BLUCE]+.",
+            "[^AYN\\s]+(E|A)"
+        ],
+        "left_to_right": [
+            ".(\\sC|OW|\\s)+",
+            "[RACE]+(AS|KS)",
+            "[NOA\\sE]+",
+            "(BL|UF)[A\\s,HE]+",
+            "[A-G][ARTH\\s.]+",
+            "[\\sEA]+G[OD\\s]+",
+            "(IG|\\sN|H\\s|H)+",
+            "(SW|EA|T,\\s)+",
+            "(H|M|E)\\1T[\\sPYS]+",
+            "[O-Z][ICE\\s]+.+[PEN]"
+        ],
+        "right_to_left": [
+            ".{3}[COPE\\s]+",
+            "[RAYS]+C(KS|SK|Y)",
+            "[\\sAP]+[M-W]{2}",
+            "[A-Q]{2}[^PASH]+.",
+            "(IR|T\\.|EA|R)+",
+            "[^APE][DOG]+",
+            "\\W[GINES]+.?",
+            "[\\sWEAT,S']+",
+            "(.?)\\1(P|T\\s)+",
+            "(IN|R|CE|\\sP)+"
+        ],
+        "down_to_up": [
+            "[BRIN\\W]{4}[TERN\\s]+",
+            "(LA|O|AA){2,3}.+",
+            "[A-EQ-Z]{2}['\\s!]E[^.!Y]+",
+            "\\W(KN|\\s|\\sK)+TO.+",
+            "[^GAULE,]+D[^OL]+"
+        ]
+    }
+]

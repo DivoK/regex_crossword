@@ -1,0 +1,97 @@
+[
+    {
+        "title": "Beatles",
+        "up_to_down": [
+            "[^SPEAK]+",
+            "EP|IP|EF"
+        ],
+        "left_to_right": [
+            "HE|LL|O+",
+            "[PLEASE]+"
+        ],
+        "right_to_left": [
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "Naughty",
+        "up_to_down": [
+            "(A|B|C)\\1",
+            "(AB|OE|SK)"
+        ],
+        "left_to_right": [
+            ".*M?O.*",
+            "(AN|FE|BE)"
+        ],
+        "right_to_left": [
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "Ghost",
+        "up_to_down": [
+            "[COBRA]+",
+            "(AB|O|OR)+"
+        ],
+        "left_to_right": [
+            "(.)+\\1",
+            "[^ABRC]+"
+        ],
+        "right_to_left": [
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "Symbolism",
+        "up_to_down": [
+            ".?.+",
+            ".+"
+        ],
+        "left_to_right": [
+            "[*]+",
+            "/+"
+        ],
+        "right_to_left": [
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "Airstrip One",
+        "up_to_down": [
+            "\\d[2480]",
+            "56|94|73"
+        ],
+        "left_to_right": [
+            "18|19|20",
+            "[6789]\\d"
+        ],
+        "right_to_left": [
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            ""
+        ]
+    }
+]

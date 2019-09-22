@@ -1,0 +1,129 @@
+[
+    {
+        "title": "Ten o'clock",
+        "up_to_down": [
+            "(ENT|NTE|NET)*",
+            "[WEAR]*",
+            "[R-Z]E*[M-R]"
+        ],
+        "left_to_right": [
+            "(T|E|N)*",
+            "(.)*W+\\1",
+            "[LENT]*"
+        ],
+        "right_to_left": [
+            "",
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "Third",
+        "up_to_down": [
+            "(GE|PE)[AL]*",
+            "[EAF]+(YE|AB)*",
+            "(QR|LE)(G|I|M|P)"
+        ],
+        "left_to_right": [
+            "(L|E|D|G|Y)*",
+            "(A|E|J)*Y.*",
+            "[FLEDG]*"
+        ],
+        "right_to_left": [
+            "",
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "Horn",
+        "up_to_down": [
+            "(TS|RA|QA)*",
+            "(AB|UT|AR)*",
+            "(K|T)U.*(A|R)",
+            "(AR|FS|ST)+"
+        ],
+        "left_to_right": [
+            "[TRASH]*",
+            "(FA|AB)[TUP]*",
+            "(BA|TH|TU)*",
+            ".*A.*"
+        ],
+        "right_to_left": [
+            "",
+            "",
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "Open the lid",
+        "up_to_down": [
+            "(AP|TR|OR)*",
+            "R[AJEQ]*",
+            "[A-O]{2}(AR|AJ)*",
+            "[RAMP]*(T|O)+"
+        ],
+        "left_to_right": [
+            "[PARTY]*[POD]",
+            "(JA|OK|RA){2}",
+            "(.)*J\\1[RQ]",
+            "[CAP]*(T|R|Y)*"
+        ],
+        "right_to_left": [
+            "",
+            "",
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "Time Walker",
+        "up_to_down": [
+            ".*E.*",
+            "[^P]I(IT|ME)",
+            "(EM|FE)(IT|IP)",
+            "(TS|PE|KE)*"
+        ],
+        "left_to_right": [
+            "(EP|ST)*",
+            "T[A-Z]*",
+            ".M.T",
+            ".*P.[S-X]+"
+        ],
+        "right_to_left": [
+            "",
+            "",
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            "",
+            "",
+            ""
+        ]
+    }
+]

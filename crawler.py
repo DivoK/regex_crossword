@@ -1,0 +1,84 @@
+import json
+import typing
+from pathlib import Path
+
+import bs4
+from loguru import logger
+from selenium import webdriver
+
+LEVEL_PACKS_DIR = 'level_packs'
+ROOT_SITE = 'https://regexcrossword.com'
+CHALLENGES_BLACKLIST = [
+    'hexagonal'
+]  # We just don't support some freaky challenge types. Sorry.
+
+level_dict_type = typing.Dict[str, typing.Union[str, typing.List[str]]]
+pack_dict_type = typing.Dict[str, typing.Union[str, level_dict_type]]
+
+
+def parse_level(content: str) -> level_dict_type:
+    soup = bs4.BeautifulSoup(content, 'html.parser')
+    title = soup.title.string.split('|')[0].strip()
+    logger.debug(f'parsing level {title}')
+    logger.debug('parsing up_to_down')
+    up_to_down = [element.text for element in soup.find('thead').find_all('span')]
+    logger.debug('parsing down_to_up')
+    down_to_up = [element.text for element in soup.find('tfoot').find_all('span')]
+    left_to_right = []
+    right_to_left = []
+    logger.debug('parsing tbody')
+    for i, element in enumerate(soup.find('tbody').find_all('span')):
+        if i % 2 == 0:
+            left_to_right.append(element.text)
+        else:
+            right_to_left.append(element.text)
+    return {
+        'title': title,
+        'up_to_down': up_to_down,
+        'left_to_right': left_to_right,
+        'right_to_left': right_to_left,
+        'down_to_up': down_to_up,
+    }
+
+
+def parse_pack(driver: webdriver.Chrome, pack_url: str) -> pack_dict_type:
+    logger.info(f'parsing pack {pack_url}')
+    levels = []
+    i = 1
+    while True:
+        logger.debug(f'parsing level {i}')
+        level_url = f'{pack_url}/{i}'
+        driver.get(level_url)
+        try:
+            levels.append(parse_level(driver.page_source))
+        except Exception:
+            logger.warning('got exception, finished with this pack')
+            break
+        i += 1
+    return {'title': pack_url.split('/')[-2], 'levels': levels}
+
+
+def get_challenge_packs(content: str) -> typing.List[str]:
+    logger.info('getting challenge packs')
+    soup = bs4.BeautifulSoup(content, 'html.parser')
+    return [
+        element.get('href')
+        for element in soup.find_all('a')
+        if element.get('href').startswith('/challenges')
+        and not element.get('href').split('/')[-1] in CHALLENGES_BLACKLIST
+    ]
+
+
+def main() -> None:
+    driver = webdriver.Chrome()
+    driver.get(ROOT_SITE)
+    challenge_packs = get_challenge_packs(driver.page_source)
+    for i, pack_route in enumerate(challenge_packs):
+        pack = parse_pack(driver, f'{ROOT_SITE}{pack_route}/puzzles')
+        path_to_pack = Path(LEVEL_PACKS_DIR, f'{i}_{pack["title"]}').with_suffix('.json')
+        path_to_pack.parent.mkdir(parents=True, exist_ok=True)
+        path_to_pack.write_text(json.dumps(pack['levels'], indent=4))
+
+
+if __name__ == '__main__':
+    main()

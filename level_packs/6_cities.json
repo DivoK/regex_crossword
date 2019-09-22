@@ -1,0 +1,117 @@
+[
+    {
+        "title": "Pisco Sour",
+        "up_to_down": [
+            "(MA|LM)",
+            "[^MESH]+"
+        ],
+        "left_to_right": [
+            "[LINE]+",
+            "[LAM]+"
+        ],
+        "right_to_left": [
+            "[ISLE]+",
+            "[MALE]+"
+        ],
+        "down_to_up": [
+            "[LAME]*",
+            "[^LES]+"
+        ]
+    },
+    {
+        "title": "Roman Latin",
+        "up_to_down": [
+            "[IDEAL\\s]+",
+            "[OLD]I[PUS]",
+            "[MNOPQR]+"
+        ],
+        "left_to_right": [
+            ".*[KNIGHT]",
+            "(IN|SI|D|E)+",
+            "[IMUST]+"
+        ],
+        "right_to_left": [
+            "[^GIP]+[^MITE]",
+            "[DIMN]+[NO]",
+            "[^SNAP\\s\\-]+"
+        ],
+        "down_to_up": [
+            "(DI|FI|L|O)+",
+            "[IOU\\s]+",
+            "(.)\\1(M|N)"
+        ]
+    },
+    {
+        "title": "Big and hot",
+        "up_to_down": [
+            "[NAYE]*",
+            "(EO|N\\s)",
+            "[WRONG]*",
+            "(K|R|I|M|\\s)+"
+        ],
+        "left_to_right": [
+            "(W\\s|NE|PS)*",
+            "[YOU]{2}[ARK]+"
+        ],
+        "right_to_left": [
+            "[END\\sWITH]+",
+            ".+R.*"
+        ],
+        "down_to_up": [
+            "[YEN]+",
+            "[ETPHONE\\s]+",
+            "[^GONE\\s]+",
+            "[\\sANKT]+"
+        ]
+    },
+    {
+        "title": "Alpha World City",
+        "up_to_down": [
+            "(KA|LK)[MNO]",
+            ".+(AL|P)",
+            "[^PIM\\s]+",
+            "[LP].*[PR]"
+        ],
+        "left_to_right": [
+            "[ALK\\sU]+(P|AL|E)+",
+            "[ABC]\\s(LU|LP)]*",
+            "(RU|MP|UR|S)+"
+        ],
+        "right_to_left": [
+            "[LUKE]{2}[LAKE\\s]+",
+            ".*[PUL]+",
+            "[RUMPUS]*"
+        ],
+        "down_to_up": [
+            "[KRAMP]+",
+            "U[PLAIN\\s]{2}",
+            "[ALURE]+",
+            "[RULE\\s]+"
+        ]
+    },
+    {
+        "title": "Home",
+        "up_to_down": [
+            "[HELP\\s]+",
+            "[^\\sPONG]+N",
+            "[SONG]+\\s"
+        ],
+        "left_to_right": [
+            "[^SEAP]+",
+            "[\\sPIN]E[NET]",
+            "[^ONE\\s]+",
+            "[END\\s]+"
+        ],
+        "right_to_left": [
+            "[\\sCOPE]+",
+            "[^HI\\s]+",
+            "[\\sHAG]+",
+            "[^SODA]+"
+        ],
+        "down_to_up": [
+            "[^SLIC]+\\w",
+            "[OCEAN\\s]+",
+            "[^SPIES]+"
+        ]
+    }
+]

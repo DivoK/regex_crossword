@@ -1,0 +1,153 @@
+[
+    {
+        "title": "Royal Dinner",
+        "up_to_down": [
+            "(FI|A)+",
+            "(YE|OT)K",
+            "(.)[IF]+",
+            "[NODE]+",
+            "(FY|F|RG)+"
+        ],
+        "left_to_right": [
+            "(Y|F)(.)\\2[DAF]\\1",
+            "(U|O|I)*T[FRO]+",
+            "[KANE]*[GIN]*"
+        ],
+        "right_to_left": [
+            "",
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "Regular Workout",
+        "up_to_down": [
+            "[ARK]*O.*",
+            "(.).*\\1N\\1",
+            "(SOD|DO|GE)*",
+            "[FAXUS]*",
+            "[LOPITY]*"
+        ],
+        "left_to_right": [
+            "[UGLER]*",
+            "[CAST]*REX[PEA]*",
+            "[SIRES]*",
+            "(L|OFT|ON)*",
+            "H*(AY|ED)*"
+        ],
+        "right_to_left": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "We apologise for the inconvenience",
+        "up_to_down": [
+            "[ABC]*(.)\\1(ME|UO)",
+            "(.)T*E*\\1",
+            "[HAS]*(SN|PA)",
+            "(WE|GA|AL)T*O+",
+            "(EG|BEEE)[WIQ]*"
+        ],
+        "left_to_right": [
+            "[QA].[WEST]*",
+            "(HE|RT|TK)*.",
+            "(RE|QR)[QUART]*",
+            "[EUW]*S[RITE]*",
+            "(.)(.)\\2\\1[WE]"
+        ],
+        "right_to_left": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "Questionable",
+        "up_to_down": [
+            "(!!|\\?!|;\\?)*\\?",
+            "[<!?*#>]*",
+            "[?*!].\\?[!<*]*",
+            "(.)[?#]\\1\\?\\1",
+            "[<?>][\\[!]*[?\\|#]"
+        ],
+        "left_to_right": [
+            "[#?]!*[:?;]",
+            "(.)([;?])\\1\\2\\1",
+            "[\"!\"]*\\?!*#?",
+            ".[;?][>!?]*",
+            "(.)[;!\"]*!\\1"
+        ],
+        "right_to_left": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "title": "Hamlet",
+        "up_to_down": [
+            "[RUTH]*(OE|EO)[RB]*",
+            "(BG|ON|KK)+[RIF]+",
+            "(MN|BO|FI)[EU]{2,}",
+            "(KT|AL|ET)+G",
+            "[OH](PR|AX|TR)+"
+        ],
+        "left_to_right": [
+            "[IT](O)*(BE|AD)*\\1",
+            "[NORMAL]+T{2}",
+            ".*(XA|BE).*",
+            "(EG|UL){2}[ALF]*",
+            "[REQ]*(G|P)(.)+"
+        ],
+        "right_to_left": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "down_to_up": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    }
+]

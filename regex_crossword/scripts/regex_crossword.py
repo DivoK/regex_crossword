@@ -2,11 +2,12 @@ import argparse
 import os
 from pathlib import Path
 
+from ..crossword import Crossword
+
 try:
     from .crawler import crawl
 except ImportError:
     crawl = None
-from ..crossword import Crossword
 
 DEFAULT_LEVEL_PACKS_PATH = Path('level_packs')
 
@@ -48,6 +49,8 @@ def game_main(level_packs_path: Path) -> None:
     try:
         cw.mainloop()
     except KeyboardInterrupt:
+        pass
+    finally:
         print('Thank you for playing!')
 
 

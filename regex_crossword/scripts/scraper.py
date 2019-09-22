@@ -6,7 +6,6 @@ import bs4
 from loguru import logger
 from selenium import webdriver
 
-LEVEL_PACKS_DIR = 'level_packs'
 ROOT_SITE = 'https://regexcrossword.com'
 CHALLENGES_BLACKLIST = [
     'hexagonal'
@@ -52,7 +51,7 @@ def parse_pack(driver: webdriver.Chrome, pack_url: str) -> pack_dict_type:
         try:
             levels.append(parse_level(driver.page_source))
         except Exception:
-            logger.warning('got exception, finished with this pack')
+            logger.warning(f'got exception, treating pack {pack_url} as finished')
             break
         i += 1
     return {'title': pack_url.split('/')[-2], 'levels': levels}
@@ -69,16 +68,14 @@ def get_challenge_packs(content: str) -> typing.List[str]:
     ]
 
 
-def main() -> None:
+def scrape(output_path: Path) -> None:
+    logger.info(f'start scraping on {ROOT_SITE}')
     driver = webdriver.Chrome()
     driver.get(ROOT_SITE)
     challenge_packs = get_challenge_packs(driver.page_source)
     for i, pack_route in enumerate(challenge_packs):
         pack = parse_pack(driver, f'{ROOT_SITE}{pack_route}/puzzles')
-        path_to_pack = Path(LEVEL_PACKS_DIR, f'{i}_{pack["title"]}').with_suffix('.json')
+        path_to_pack = Path(output_path, f'{i}_{pack["title"]}').with_suffix('.json')
         path_to_pack.parent.mkdir(parents=True, exist_ok=True)
         path_to_pack.write_text(json.dumps(pack['levels'], indent=4))
-
-
-if __name__ == '__main__':
-    main()
+    logger.info('done!')

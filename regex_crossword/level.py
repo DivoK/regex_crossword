@@ -1,3 +1,4 @@
+import itertools
 import re
 import typing
 
@@ -9,13 +10,17 @@ LevelDataType = typing.Dict[str, typing.Union[str, typing.List[str]]]
 class Level:
     def __init__(self, level_data: LevelDataType):
         self.title = level_data.get('title')
-        self.up_to_down_regexes = [re.compile(regex) for regex in level_data['up_to_down']]
-        self.down_to_up_regexes = [re.compile(regex) for regex in level_data['down_to_up']]
+        self.up_to_down_regexes = [
+            re.compile(regex) for regex in level_data.get('up_to_down', [])
+        ]
+        self.down_to_up_regexes = [
+            re.compile(regex) for regex in level_data.get('down_to_up', [])
+        ]
         self.left_to_right_regexes = [
-            re.compile(regex) for regex in level_data['left_to_right']
+            re.compile(regex) for regex in level_data.get('left_to_right', [])
         ]
         self.right_to_left_regexes = [
-            re.compile(regex) for regex in level_data['right_to_left']
+            re.compile(regex) for regex in level_data.get('right_to_left', [])
         ]
 
     def create_matrix(self) -> Matrix:
@@ -25,23 +30,44 @@ class Level:
         )
 
     def check_matrix(self, mat: Matrix) -> bool:
+        matrix_expected_row_len = len(
+            max([self.left_to_right_regexes, self.right_to_left_regexes], key=len)
+        )
         matrix_row_strings = [
             ''.join(mat[i][j] for j in range(mat.columns)) for i in range(mat.rows)
         ]
-        matrix_colum_strings = [
+        if matrix_expected_row_len != len(matrix_row_strings):
+            raise ValueError(
+                f'Matrix with {len(matrix_row_strings)} rows is incompatible with level of {matrix_expected_row_len} rows.'
+            )
+
+        matrix_expected_column_len = len(
+            max([self.up_to_down_regexes, self.down_to_up_regexes], key=len)
+        )
+        matrix_column_strings = [
             ''.join(mat[j][i] for j in range(mat.rows)) for i in range(mat.columns)
         ]
+        if matrix_expected_column_len != len(matrix_column_strings):
+            raise ValueError(
+                f'Matrix with {len(matrix_column_strings)} columns is incompatible with level of {matrix_expected_column_len} columns.'
+            )
 
-        for row, utd_regex, dtu_regex in zip(
-            matrix_colum_strings, self.up_to_down_regexes, self.down_to_up_regexes
+        for row, utd_regex, dtu_regex in itertools.zip_longest(
+            matrix_column_strings,
+            self.up_to_down_regexes,
+            self.down_to_up_regexes,
+            fillvalue=re.compile(''),
         ):
             if (utd_regex.pattern and re.fullmatch(utd_regex, row) is None) or (
                 dtu_regex.pattern and re.fullmatch(dtu_regex, row) is None
             ):
                 return False
 
-        for row, ltr_regex, rtl_regex in zip(
-            matrix_row_strings, self.left_to_right_regexes, self.right_to_left_regexes
+        for row, ltr_regex, rtl_regex in itertools.zip_longest(
+            matrix_row_strings,
+            self.left_to_right_regexes,
+            self.right_to_left_regexes,
+            fillvalue=re.compile(''),
         ):
             if (ltr_regex.pattern and re.fullmatch(ltr_regex, row) is None) or (
                 rtl_regex.pattern and re.fullmatch(rtl_regex, row) is None
@@ -51,28 +77,28 @@ class Level:
         return True
 
     def format_up_to_down_regexes(self) -> str:
-        ret_str = 'up_to_down:\n'
+        ret_str = 'Up -> Down:\n'
         ret_str += '\n'.join(
             [f'{i}: {regex.pattern}' for i, regex in enumerate(self.up_to_down_regexes)]
         )
         return ret_str.strip()
 
     def format_down_to_up_regexes(self) -> str:
-        ret_str = 'down_to_up:\n'
+        ret_str = 'Down -> Up:\n'
         ret_str += '\n'.join(
             [f'{i}: {regex.pattern}' for i, regex in enumerate(self.down_to_up_regexes)]
         )
         return ret_str.strip()
 
     def format_left_to_right_regexes(self) -> str:
-        ret_str = 'left_to_right:\n'
+        ret_str = 'Left -> Right:\n'
         ret_str += '\n'.join(
             [f'{i}: {regex.pattern}' for i, regex in enumerate(self.left_to_right_regexes)]
         )
         return ret_str.strip()
 
     def format_right_to_left_regexes(self) -> str:
-        ret_str = 'right_to_left:\n'
+        ret_str = 'Right -> Left:\n'
         ret_str += '\n'.join(
             [f'{i}: {regex.pattern}' for i, regex in enumerate(self.right_to_left_regexes)]
         )

@@ -5,6 +5,11 @@ from .level import Level
 
 
 class LevelPack:
+    """
+    Class that serves as a container to multiple levels.
+    Initialized from a path to a JSON file describing one.
+    """
+
     def __init__(self, path: Path):
         self.title = str(path.stem)
         self._raw_data = json.loads(path.read_text())

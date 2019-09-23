@@ -7,15 +7,24 @@ from ..crossword import Crossword
 try:
     from .scraper import scrape
 except ImportError:
+    # This means the user haven't installed the `scraper` extra, which is fine.
     scrape = None
 
-DEFAULT_LEVEL_PACKS_PATH = Path('level_packs')
+DEFAULT_LEVEL_PACKS_PATH = Path(
+    'level_packs'
+)  # Default path where level packs will be looked for.
 
 SUCCESS = 0
 FAILURE = -1
 
 
 def parse_args() -> argparse.Namespace:
+    """
+    Parse the command line arguments.
+
+    :return: argparse paresd arguments.
+    :rtype: argparse.Namespace
+    """
     parser = argparse.ArgumentParser(description='Start the game')
     game_group = parser.add_argument_group(
         'Game arguments', 'Arguments that affect the way the game is loaded and played'
@@ -45,6 +54,14 @@ def parse_args() -> argparse.Namespace:
 
 
 def game_main(level_packs_path: Path) -> None:
+    """
+    Create a new Crossword instance and start the game's mainloop.
+
+    :param level_packs_path: path to a directory containing level packs.
+    :type level_packs_path: Path
+    :return: none.
+    :rtype: None
+    """
     cw = Crossword(level_packs_path)
     try:
         cw.mainloop()
@@ -55,6 +72,12 @@ def game_main(level_packs_path: Path) -> None:
 
 
 def cli() -> int:
+    """
+    Main entry point for the CLI.
+
+    :return: exit code.
+    :rtype: int
+    """
     args = parse_args()
     if args.scrape:
         if scrape is None:

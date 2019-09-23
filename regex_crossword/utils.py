@@ -5,11 +5,27 @@ import typing
 
 @dataclasses.dataclass
 class Coordinate:
+    """
+    Dataclass for storing a certain coordinate on a matrix-like structure.
+    """
+
     row: int
     col: int
 
 
 def popup_message(message: str, position: Coordinate, exit_keys: typing.Iterable) -> None:
+    """
+    Pop up a boxed window with the given message.
+
+    :param message: message to be displayed.
+    :type message: str
+    :param position: position on the screen to draw the upper-left corner of the box from.
+    :type position: Coordinate
+    :param exit_keys: an iterable of keys that will close the popup upon press.
+    :type exit_keys: typing.Iterable
+    :return: none.
+    :rtype: None
+    """
     prev_cursor = curses.curs_set(0)
     message_split = message.splitlines()
     message_width = len(max(message_split, key=len))

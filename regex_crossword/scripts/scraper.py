@@ -6,7 +6,7 @@ import bs4
 from loguru import logger
 from selenium import webdriver
 
-ROOT_SITE = 'https://regexcrossword.com'
+ROOT_SITE = 'https://regexcrossword.com'  # Where to scrape from.
 CHALLENGES_BLACKLIST = [
     'hexagonal'
 ]  # We just don't support some freaky challenge types. Sorry.
@@ -16,6 +16,14 @@ pack_dict_type = typing.Dict[str, typing.Union[str, level_dict_type]]
 
 
 def parse_level(content: str) -> level_dict_type:
+    """
+    Parse a level's page content into a level_dict.
+
+    :param content: the content of the level's page.
+    :type content: str
+    :return: dict containing the title and different regexes with their orientation.
+    :rtype: level_dict_type
+    """
     soup = bs4.BeautifulSoup(content, 'html.parser')
     title = soup.title.string.split('|')[0].strip()
     logger.debug(f'parsing level {title}')
@@ -41,6 +49,16 @@ def parse_level(content: str) -> level_dict_type:
 
 
 def parse_pack(driver: webdriver.Chrome, pack_url: str) -> pack_dict_type:
+    """
+    Parse the various levels in a pic into a pack_dict.
+
+    :param driver: the current session webdriver.
+    :type driver: webdriver.Chrome
+    :param pack_url: main url of the pack.
+    :type pack_url: str
+    :return: dict tontaining the title and various levels of a pack.
+    :rtype: pack_dict_type
+    """
     logger.info(f'parsing pack {pack_url}')
     levels = []
     i = 1
@@ -58,6 +76,14 @@ def parse_pack(driver: webdriver.Chrome, pack_url: str) -> pack_dict_type:
 
 
 def get_challenge_packs(content: str) -> typing.List[str]:
+    """
+    Return all the various challenge packs on site right now.
+
+    :param content: the content of the page holding the packs.
+    :type content: str
+    :return: list of all pack urls.
+    :rtype: typing.List[str]
+    """
     logger.info('getting challenge packs')
     soup = bs4.BeautifulSoup(content, 'html.parser')
     return [
@@ -69,6 +95,14 @@ def get_challenge_packs(content: str) -> typing.List[str]:
 
 
 def scrape(output_path: Path) -> None:
+    """
+    Scrape the main root site's challenge packs and save them into output path.
+
+    :param output_path: where to save the packs to.
+    :type output_path: Path
+    :return: none.
+    :rtype: None
+    """
     logger.info(f'start scraping on {ROOT_SITE}')
     driver = webdriver.Chrome()
     driver.get(ROOT_SITE)

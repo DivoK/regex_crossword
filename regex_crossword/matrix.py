@@ -2,12 +2,16 @@ import typing
 
 
 class Matrix:
-    def __init__(self, rows, columns):
-        self.rows: int = rows
-        self.columns: int = columns
+    """
+    Class that stores a matrix (list of lists).
+    """
+
+    def __init__(self, rows: int, columns: int):
+        self.rows = rows
+        self.columns = columns
         self._matrix: typing.List[typing.List[str]] = [
             ['\0' for _ in range(columns)] for _ in range(rows)
-        ]
+        ]  # The underlying matrix.
 
     def __getitem__(self, index) -> typing.List:
         return self._matrix[index]
@@ -17,10 +21,22 @@ class Matrix:
 
     @property
     def str_width(self) -> int:
-        return len(str(self).splitlines()[1])
+        """
+        Return the maximum width of str(self).
+
+        :return: maximum width of str(self).
+        :rtype: int
+        """
+        return len(max(str(self).splitlines(), key=len))
 
     @property
     def str_height(self) -> int:
+        """
+        Return the height of str(self).
+
+        :return: height of str(self).
+        :rtype: int
+        """
         return len(str(self).splitlines())
 
     def __str__(self) -> str:

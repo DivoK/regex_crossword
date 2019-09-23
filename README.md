@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/regex_crossword.svg)](https://pypi.python.org/pypi/regex_crossword/)
-[![PyPI version fury.io](https://badge.fury.io/py/regex_crossword.svg)](https://pypi.python.org/pypi/regex_crossword/)
+[![PyPI version fury.io](https://badge.fury.io/py/regex-crossword.svg)](https://pypi.python.org/pypi/regex_crossword/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 Terminal Freaks rejoice!

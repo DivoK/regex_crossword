@@ -96,7 +96,9 @@ class Game:
         )
         self.window_legend_alt = self._create_legend_window(
             self.level.format_dtu_rtl_regexes(),
-            position=(offset_y, legend_position_x + self.window_legend.getmaxyx()[1]),
+            position=Coordinate(
+                offset_y, legend_position_x + self.window_legend.getmaxyx()[1]
+            ),
         )
         self.window_game = curses.newwin(
             self.matrix.str_height, self.matrix.str_width + 1, offset_y, 0
